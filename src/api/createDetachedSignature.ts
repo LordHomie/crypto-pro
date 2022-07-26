@@ -59,12 +59,12 @@ export const createDetachedSignature = _afterPluginsLoaded(
           throw new Error(_extractMeaningfulErrorMessage(error) || 'Ошибка при установке сертификата');
         }
 
+        console.log(cadesCertificate)
         try {
           void (
             __cadesAsyncToken__ +
             cadesHashedData.propset_Algorithm(cadesplugin.CADESCOM_HASH_ALGORITHM_CP_GOST_3411_2012_256)
           );
-          console.log(cadesCertificate)
           void (__cadesAsyncToken__ + cadesHashedData.SetHashValue(messageHash));
         } catch (error) {
           console.error(error);
